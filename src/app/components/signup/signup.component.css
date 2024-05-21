@@ -1,0 +1,6 @@
+.loginMainContainer{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 10px;
+}

@@ -1,0 +1,80 @@
+<div>
+  <div class="homeHeader">
+    <h1 class="createTask">Task Boards</h1>
+    <div class="logOut">
+      <button class="userProfile" (click)="logOut()">Logout</button>
+      <button class="userProfile" routerLink="/profile">User profile</button>
+    </div>
+  </div>
+
+  <button *ngIf="!isActiveTask" class="createTask" (click)="toggleCreateTask()">Create Task Board</button>
+
+  <div *ngIf="isActiveTask">
+    <h2>Create Task Board</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="isEditing ? updateTask() : createTaskBoard()">
+      <div class="createTaskContainer">
+
+        <div class="createTaskField">
+          <label for="name">Name:</label>
+          <input type="text" id="name" formControlName="name" placeholder="Enter task board name">
+          <div *ngIf="taskForm.get('name')?.invalid && (taskForm.get('name')?.dirty || taskForm.get('name')?.touched)"
+            class="error">
+            <div *ngIf="taskForm.get('name')?.errors?.['required']">Name is required.</div>
+          </div>
+        </div>
+
+        <div class="createTaskField">
+          <label for="taskBox">Task Box:</label>
+          <select id="taskBox" formControlName="taskBox">
+            <option value="" disabled>Select task box</option>
+            <option [ngValue]="1">Task Box 1</option>
+        <option [ngValue]="2">Task Box 2</option>
+          </select>
+          <div *ngIf="taskForm.get('taskBox')?.invalid && (taskForm.get('taskBox')?.dirty || taskForm.get('taskBox')?.touched)" class="error">
+            <div *ngIf="taskForm.get('taskBox')?.errors?.['required']">Task Box is required.</div>
+          </div>
+        </div>
+
+        <div class="createTaskField">
+          <label for="description">Description:</label>
+          <textarea id="description" formControlName="description"
+            placeholder="Enter task board description"></textarea>
+        </div>
+      </div>
+      <button class="createTask" type="button" (click)="clearForm()">Cancel</button>
+      <button class="createTask" type="submit" [disabled]="taskForm.invalid">{{ isEditing ? 'Update' : 'Create'
+        }}</button>
+    </form>
+  </div>
+
+
+  <div class="task-container drag-container drag-container--origin">
+    <div class="task-box">
+      <h2>Task Box 1</h2>
+      <div cdkDropList id="optionsList" [cdkDropListData]="tasksBox1"
+        [cdkDropListConnectedTo]="['includeList', 'excludeList']" class="task-list" (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of tasksBox1" cdkDrag class="task-item dragitem">
+          <span>{{ item.name }}</span>
+          <div>
+            <mat-icon class="edit" (click)="editTask(item)">edit</mat-icon>
+            <mat-icon class="delete" (click)="deleteTask(item._id)">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-two drag-container drag-container--origin">
+      <h2>Task Box 2</h2>
+      <div cdkDropList id='includeList' [cdkDropListData]="tasksBox2" [cdkDropListConnectedTo]="['optionsList']"
+        class="task-list" (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of tasksBox2" cdkDrag class="task-item dragitem">
+          <div>{{ item.name }}</div>
+          <div>
+            <mat-icon class="edit" (click)="editTask(item)">edit</mat-icon>
+            <mat-icon class="delete" (click)="deleteTask(item._id)">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

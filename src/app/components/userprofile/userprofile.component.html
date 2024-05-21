@@ -1,0 +1,35 @@
+<h1>Update Profile</h1>
+
+<img *ngIf="imageSrc" [src]="imageSrc">
+<img *ngIf="!imageSrc" src="../../../assets/user.jpg">
+
+<div class="userProfileContainer">
+<div class="userProfile">
+  <label for="email">Email:</label>
+  <input type="email" id="email" [(ngModel)]="profileData.email" name="email">
+</div>
+
+<div class="userProfile">
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="profileData.name" name="name">
+</div>
+
+<div class="userProfile">
+  <label for="password">Password:</label>
+  <input type="password" id="password" [(ngModel)]="profileData.password" name="password">
+</div>
+
+<div class="userProfile">
+  <label for="city">City:</label>
+  <input type="text" id="city" [(ngModel)]="profileData.city" name="city">
+</div>
+
+<div class="userProfile">
+  <label for="profilePicture">Profile Picture:</label>
+  <input type="file" id="profilePicture" (change)="handleFileInput($event)">
+</div>
+
+<div class="userAction">
+  <button (click)="updateProfile()">Update</button>
+</div>
+</div>

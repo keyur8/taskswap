@@ -1,0 +1,27 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="loginMainContainer form-group">
+      <h2>Login</h2>
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" required>
+      <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="error">
+        <div class="validationError" *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</div>
+        <div class="validationError" *ngIf="loginForm.controls['email'].errors?.['email']">Invalid email format.</div>
+      </div>
+
+      <label for="password">Password:</label>
+      <input type="password" formControlName="password" required>
+      <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error">
+        <div class="validationError" *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</div>
+      </div>
+
+      <div class="loginAction">
+        <div class="validationError" *ngIf="ivalidCred">{{ivalidCred}}</div>
+        <button class="createTask" type="submit" [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </div>
+  </form>
+  <div>
+    <a routerLink="/signup">Sign up</a>
+  </div>
+</div>

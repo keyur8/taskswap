@@ -1,0 +1,51 @@
+.loginMainContainer{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 10px;
+}
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  input {
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .loginAction{
+    width: 100%;
+  }
+  button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .forgotPassword{
+    padding-bottom: 10px;
+  }
+
+  .createTask:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+
+  .validationError{
+    color: red;
+  }

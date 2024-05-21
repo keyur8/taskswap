@@ -1,0 +1,25 @@
+.userProfileContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.userProfile{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.userAction{
+    padding: 10px;
+}
+input{
+    width: 30%;
+}
+
+button{
+    margin: 5px;
+    width: 15%;
+}
+img{
+    height: 250px;
+    width: 200px;
+}

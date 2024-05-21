@@ -1,0 +1,115 @@
+.homeHeader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.createTask {
+  width: 10%;
+}
+
+input, textarea, select{
+  width: auto;
+}
+label{
+  padding-bottom: 10px;
+}
+.createTaskContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.createTaskField{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.userProfile {
+  width: auto;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.task-list {
+  min-height: 100%;
+  border: 1px dashed #ccc;
+  padding: 10px;
+}
+
+.task-list .task-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.task-container {
+  display: flex;
+  width: 100%;
+}
+
+.task-box,
+.task-two {
+  width: 50%;
+  margin: 10px;
+}
+
+.dragitem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.edit {
+  padding: 10px;
+  color: blue;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(255, 255, 255, 0.14),
+    0 3px 14px 2px rgba(255, 255, 255, 0.14);
+}
+
+.delete {
+  padding: 10px;
+  margin-left: 10px;
+  color: red;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(255, 255, 255, 0.14),
+    0 3px 14px 2px rgba(255, 255, 255, 0.14);
+}
+
+/* drag css */
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+
+.createTaskField label {
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.createTask:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.logOut{
+  display: flex;
+  flex-direction: row;
+}
